@@ -1,23 +1,25 @@
 "use client"
-const Header = (props)=>{
+import { useRouter } from "next/navigation";
+import { Button } from "./ui/button";
 
+const Header = (props)=>{
+    const router = useRouter()
     return(
-        <div className="bg-green-400 flex justify-between px-3 py-8 text-Bold  font-bold rounded">
-           <h1 className="font-bold text-4xl">
-                Tenn_Store
+        <div className="px-8 min-h-20 bg-primary flex justify-between items-center">
+           <h1 className="text-2xl font-bold text-white">
+               𝕱𝖆𝖙𝖊𝖊𝖓-𝖆𝖕𝖕
            </h1>
-           <nav className="flex gap-4">
-            <a href="">Home</a>
-            <a href="">About</a>
-            <a href="">Card</a>
-           </nav>
+           <Button onClick={()=>router.push(props.to)}>
+                {props.cta}
+           </Button>
         </div>
     )
 }
 
 
-export default Header
+export default Header;
 
 
 
 
+ 

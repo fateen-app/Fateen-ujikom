@@ -2,15 +2,17 @@ import React from 'react'
 import { Button } from './ui/button'
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card'
 import { Badge } from './ui/badge'
+import { numberToIDR } from '@/hook/numberToIDR'
 
 const BarangCard = (props) => {
   return (
    <Card className={'h-full'}> 
       <CardHeader>
-     <img className='w-full rounded-2xl bg-white min-h max-h-80 object-contain'
+     <img className='w-full rounded-2xl bg-white min-h max-h-80 object-cover object-top'
      src={props.barang?.image} alt={`gambar$({props.barang.title})`}/>
         </CardHeader>  
-        <p className={"h-full"}>
+        <CardContent>
+            <p className={"h-full"}>
           <Badge>
         {props.barang?.category}
           </Badge>
@@ -21,13 +23,14 @@ const BarangCard = (props) => {
         {props.barang?.description}
       </p>
         </p>
+        </CardContent>
         <CardFooter className={'flex justify-between'} >
        
         <span className='text-4xl text-red-600'>           
-            {props.barang?.price}
+            {numberToIDR(props.barang?.price)}
         </span>
             <div>
-                <Button variant={'ghost'} onClick={props.onClick}> 
+                <Button className="bg-black" onClick={props.onClick}> 
                    Add to Cart
                 </Button>
             </div>

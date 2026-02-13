@@ -2,49 +2,32 @@
 
 import BarangCard from "@/components/barang"
 import Header from "@/components/header"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import axios from "axios"
-import { ShoppingCart } from "lucide-react"
+import { Drawer, DrawerContent, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer"
 import React from "react"
+import daftarbarang from "@/data/daftarBarang.json"
+import { ShoppingBag } from "lucide-react"
+import Diskon from "@/components/diskon"
+import { numberToIDR } from "@/hook/numberToIDR"
+import { Input } from "@/components/ui/input"
 
 const PageHome =()=>{
-    const [data,setData] = React.useState([])
-    const DaftarHero =[
-        'https://www.wrapstation.id/wp-content/uploads/2025/01/modifikasi-mobil-bmw-1080x675.jpg',
-        "https://www.harley-davidson.com/content/dam/h-d/images/content-images/calendar-listing/2025/asia-harley-days-clist.jpg?impolicy=myresize&rw=1100"
-    ]
-    const ListHero =[
-        {
-            url:"https://www.harga-hondamakassar.com/wp-content/uploads/2022/10/Banner-Mobil-Baru-Honda-768x346.jphttps://www.wrapstation.id/wp-content/uploads/2025/01/modifikasi-mobil-bmw-1080x675.jpg ",
-            text:"beli mobil",
-            cta:'',
-            link:''
-        },
-         {
-            url:"https://www.harley-davidson.com/content/dam/h-d/images/content-images/calendar-listing/2025/asia-harley-days-clist.jpg?impolicy=myresize&rw=1100",
-            text:"beli motor",
-            cta:'',
-            link:''
-        }
-    ]
+    //const [data,setData] = React.useState([])
+    const daftarHero =['/banner/1.jpeg']
+   const data = daftarbarang
 
     const [Keranjang,setKeranjang] = React.useState([])
-    const [diskon,setDiskon] =React.useState(30)
-    const [potonganHarga,setPotonganHarga] =React.useState([])
-    const [totalHarga,setTotalHarga] =React.useState([])
-    const [cekoutPrice,setCekoutPrice] =React.useState([])
+    const [diskon,setDiskon] =React.useState(0)
+
     // state program diskon
-        React.useEffect(()=>{
-            setTotalHarga(Keranjang.reduce((acc,data)=>(acc+=data.price),0))
-            setPotonganHarga(totalHarga*diskon/100)
-            setCekoutPrice(totalHarga-potonganHarga)
-        },
-    [diskon,potonganHarga,totalHarga,Keranjang])
+    //     React.useEffect(()=>{
+    //         setTotalHarga(Keranjang.reduce((acc,data)=>(acc+=data.price),0))
+    //         setPotonganHarga(totalHarga*diskon/100)
+    //         setCekoutPrice(totalHarga-potonganHarga)
+    //     },
+    // [diskon,potonganHarga,totalHarga,Keranjang])
 
     const [program,setProgram] = React.useState({
         'diskon' : diskon,
@@ -55,121 +38,116 @@ const PageHome =()=>{
     // efek yang akan terjadi jika keranjang berubah
     // use effect untuk program
  
-    React.useEffect(()=>{
-    
-        const fetchingData = async (path)=>{
-            const response = await axios.get(`https://fakestoreapi.com/${path}`)
-            console.log(response.data)
-            setData(response.data)
-        } 
-        fetchingData('products')
-    },[] )  
+   
 
-    const handleKeranjang =(item)=>{
+   const handleKeranjang =(item)=>{
         setKeranjang([...Keranjang,item])    
     }
-    
-    return(
-        <div>
-           <section className="fixed bottom-10 right-10">
-            <Sheet>
-                <SheetTrigger asChild>
-                 <Button>
-                      <ShoppingCart/>
-                   </Button>
-                </SheetTrigger>
-                <SheetContent>
-                    <SheetHeader>
-                        <SheetTitle className={"gap-2 flex text-2xl"}>
-                            <ShoppingCart className="w-8 h-8"/>
-                            Keranjang
-                        </SheetTitle>
-                    </SheetHeader>
-                    <div>
-                    <ScrollArea className='h-[75vh] w-full'>
-                        
-                      {Keranjang?.map((item ,i)=>{
-                          return(
-                              <div key={i} className="flex justify-between px-4 py-1">   
-                            <div className="font-bold text xl text-black/80">
-                                {item?.title}
-                            </div>
-                            <span className="font-bold text-xl text-black"> 
-                                {item?.price}
-                            </span>           
-                        </div>
-                    )
-                    
-                })}
-                </ScrollArea>
-                    </div>
-         
-                <SheetFooter>
-                    <div className="flex justify-between">
-                        <span className="text-xl font-semibold text-black/90">totalHarga</span>
-                        <span className="text-xl font-semibold text-black/60">{totalHarga}$</span>
-                    </div>
-                     <div className="flex justify-between">
-                        <span className="text-xl font-semibold text-black/90">Diskon</span>
-                        <span className="text-xl font-semibold text-black/60">{diskon}$</span>
-                    </div>
-                    <div className="flex justify-between">
-                        <span className="text-xl font-semibold text-black/90">${potonganHarga}</span>
-                        <span className="text-xl font-semibold text-black/60">${cekoutPrice}</span>
-                    </div>
-                </SheetFooter>
-                </SheetContent>
-                     </Sheet>
-                            <Badge className={'bg-amber-600 absolute -top-2 -right-4'}>{Keranjang?.length}               
-                            </Badge>
-                        </section> 
-                        <section id="div-header">
-                            <Header/>
-                        </section>
-                        <section id="div-hero">
-            <Carousel>
-                 <CarouselContent>
-                    {DaftarHero.map((item)=>{
-                        return(
-                            <CarouselItem>
-                                <img src={item} alt="" className="w-full  object-cover" />
-                            </CarouselItem>
 
-                   )
-                        
+  return(
+        <div>
+<section className="fixed bottom-10 right-10">
+    <Drawer>
+            <DrawerTrigger>
+                <Button>
+                    <ShoppingBag/>
+                    {Keranjang?.length}
+                </Button>
+                <DrawerContent>
+                    <DrawerHeader >
+                        <DrawerTitle>
+                            KERANJANG
+                        </DrawerTitle>
+                    </DrawerHeader>
+                    <ScrollArea className="h-[30vh] w-full">
+                        {
+                            Keranjang.map((item,i)=>{
+                                return(
+                                    <div key={i} className="flex justify-between gap-8 p-4 ">
+                                        <span>
+                                            {item.title}
+                                        </span>
+                                        <span>
+                                            {numberToIDR(item.price)}
+                                        </span>
+                                    </div>
+                                )
+                            })
+                          }  
+                    </ScrollArea>
+                    <DrawerFooter>
+                      <Input   placeHolder ="masukan diskon" onChange = {(e)=>setDiskon(e.target.value)}/>
+                      
+                        <Diskon diskon ={diskon} harga ={Keranjang.reduce((acc,data)=>(acc+=data.price),0)}>
+
+                        </Diskon>
+                    </DrawerFooter>
+               </DrawerContent>
+            </DrawerTrigger>
+         </Drawer>
+</section>
+         
+         <div>
+            <Header to ="/base" cta ="basic"/>
+         </div>
+
+      
+          <Carousel>
+                <CarouselContent>
+                    {daftarHero.map ((item,i)=>{
+                        return(
+                             <CarouselItem>
+                                <img src= {item} alt="gamba1" className="w-full h-screen object-cover" />
+                                </CarouselItem>
+                        )
                     })}
                 </CarouselContent>
             </Carousel>
-            </section>
-            <section id="div-content" className="container mt-20 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">          
+           <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            
             {
                 data?.map((item,i)=>{
                     return(
-                        <div key={i} >
-                       <BarangCard  barang={item}onClick={()=>handleKeranjang(item)} />
+                        <div key={i} onClick={()=>handleKeranjang(item)}>
+                       <BarangCard  barang={item}/>
                 
                         </div>
                     )
                 })
             }
-            </section>
-         <div id="div-header">
             
-         </div>
-               
-           <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             
+
+
+
+          {/* <Card className={max-w-2xl mx-auto}>
+            <CardHeader>
+              <CardTitle> Product</CardTitle>
+            </CardHeader>   
+            <CardContent>
+             Website ini sebuah komposisi fashion pria bernuansa luxury streetwear yang kuat, gelap, dan penuh karakter. Beragam item fashion premium ditata secara artistik di atas meja kayu bergaya vintage, menciptakan kesan eksklusif dan berkelas. Dominasi warna hitam, cokelat tua, dan aksen metal menghadirkan aura maskulin, elegan, dan edgy yang identik dengan gaya pria modern berjiwa bebas. Jaket, hoodie bergrafis gothic, tas kulit mewah, sepatu boots dan sneakers hitam mengilap berpadu dengan aksesoris seperti ikat pinggang, jam, parfum, dan celana berdetail bordir, membentuk satu kesatuan gaya yang tegas dan berani. Keseluruhan visual ini memancarkan citra gaya hidup pria premium percaya diri, stylish, dan penuh statement sangat cocok untuk menggambarkan identitas fashion kelas atas yang eksklusif dan berkarakter. 
+            </CardContent>
+              <CardFooter>
+                <Button>BUY</Button>
+                </CardFooter>
+
+
+          </Card> */}
+
+
+
+
+
+
+
+
            </div>
-
-
-
-       
-      
+          
         </div>
          
-  
+
         
     )
 }
 
-export default PageHome
+export default PageHome ;
