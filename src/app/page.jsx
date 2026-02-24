@@ -13,13 +13,14 @@ import Diskon from "@/components/diskon"
 import { numberToIDR } from "@/hook/numberToIDR"
 import { Input } from "@/components/ui/input"
 
-const PageHome =()=>{
+const PageHome =()=>{    
     //const [data,setData] = React.useState([])
-    const daftarHero =['/banner/1.jpeg']
+const daftarHero =['/banner/1.jpeg']
    const data = daftarbarang
+   
 
     const [Keranjang,setKeranjang] = React.useState([])
-    const [diskon,setDiskon] =React.useState(0)
+    const [diskon,setDiskon] =React.useState(20)
 
     // state program diskon
     //     React.useEffect(()=>{
@@ -115,32 +116,6 @@ const PageHome =()=>{
                     )
                 })
             }
-            
-            
-
-
-
-          {/* <Card className={max-w-2xl mx-auto}>
-            <CardHeader>
-              <CardTitle> Product</CardTitle>
-            </CardHeader>   
-            <CardContent>
-             Website ini sebuah komposisi fashion pria bernuansa luxury streetwear yang kuat, gelap, dan penuh karakter. Beragam item fashion premium ditata secara artistik di atas meja kayu bergaya vintage, menciptakan kesan eksklusif dan berkelas. Dominasi warna hitam, cokelat tua, dan aksen metal menghadirkan aura maskulin, elegan, dan edgy yang identik dengan gaya pria modern berjiwa bebas. Jaket, hoodie bergrafis gothic, tas kulit mewah, sepatu boots dan sneakers hitam mengilap berpadu dengan aksesoris seperti ikat pinggang, jam, parfum, dan celana berdetail bordir, membentuk satu kesatuan gaya yang tegas dan berani. Keseluruhan visual ini memancarkan citra gaya hidup pria premium percaya diri, stylish, dan penuh statement sangat cocok untuk menggambarkan identitas fashion kelas atas yang eksklusif dan berkarakter. 
-            </CardContent>
-              <CardFooter>
-                <Button>BUY</Button>
-                </CardFooter>
-
-
-          </Card> */}
-
-
-
-
-
-
-
-
            </div>
           
         </div>

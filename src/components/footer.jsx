@@ -18,7 +18,7 @@ const  Footer = (props) => {
                 </p>
                 <p className="text-xs sm:text-right opacity-90">
                     <span className="font-medium">
-                        Nama peserta didik
+                        Moch Fateen
 
                     </span>
                     <br />

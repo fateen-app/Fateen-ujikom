@@ -11,7 +11,7 @@
   {
     "id": 2,
     "title": "Cozy Core Hoodie",
-    "price": 279000,
+    "price": 250000,
     "description": "Hoodie bergaya streetwear dengan kombinasi merah dan hitam yang kuat. Grafis typography besar di bagian depan memberi kesan bold dan percaya diri. Dilengkapi detail kantong lengan ber-zip yang menambah karakter urban modern.",
     "category": "Hoodie Streetwear",
     "image": "/foto/6.jpeg"
@@ -19,7 +19,7 @@
   {
     "id": 3,
     "title": " Streetcraft Hoodie",
-    "price":  249000,
+    "price":  250000,
     "description": "Hoodie dengan desain clean dan minimalis, dominasi warna merah dengan hoodie hitam yang memberi kesan maskulin dan hangat. Bahan fleece lembut, nyaman dipakai seharian, cocok untuk cuaca dingin maupun gaya santai harian.",
     "category": "Hoodie Casual / Daily Wear",
     "image": "/foto/5.jpeg"
@@ -27,7 +27,7 @@
   {
     "id": 4,
     "title": " Insignia Split Tee",
-    "price":  149000,
+    "price":  150000,
     "description": "Kaos lengan pendek dengan desain half red–half black dan typography statement di bagian dada. Memberi kesan sporty, modern, dan penuh karakter. Cocok untuk OOTD, nongkrong, dan aktivitas santai.",
     "category": "Kaos Street Casua",
     "image": "/foto/4.jpeg"
@@ -35,7 +35,7 @@
   {
     "id": 5,
     "title": "Division Classic Tee",
-    "price":  139000,  
+    "price":  130000,  
     "description": "Kaos abu-abu dengan desain sporty klasik dan aksen garis di lengan. Tampilan clean namun tetap stylish, mudah dipadukan dengan jeans atau celana chino. Cocok untuk gaya harian yang simpel tapi rapi.",
     "category": "Kaos Casual",
     "image": "/foto/3.jpeg"
@@ -43,7 +43,7 @@
   {
     "id": 6,
     "title": "Superior Knit Turtleneck",
-    "price":  299000,
+    "price":  300000,
     "description": "Sweater rajut turtleneck dengan desain split merah dan hitam yang elegan. Tekstur rib knit memberi kesan slim dan berkelas. Cocok untuk cuaca dingin, acara malam, atau tampilan smart-casual yang lebih dewasa.",
     "category": "Sweater / Knitwear Premium",
     "image": "/foto/2.jpeg"
@@ -51,7 +51,7 @@
   {
     "id": 7,
     "title": "Polo Shirt Navigator Split Red Black",
-    "price":  189000,
+    "price":  180000,
     "description": "Polo shirt pria dengan desain split warna merah dan hitam yang maskulin dan modern. Logo bintang “N” di bagian depan memberikan kesan sporty premium. Cocok untuk gaya kasual hingga semi-formal.",
     "category": "Fashion Pria / Atasan / Polo Shirt",
     "image": "/foto/7.jpeg"
@@ -59,7 +59,7 @@
   {
    "id": 8,
     "title": "Jaket Hoodie House of Smith Red Black",
-    "price":  349000,
+    "price":  350000,
     "description": "Jaket hoodie eksklusif dengan kombinasi warna merah dan hitam yang bold. Dilengkapi resleting kuat, banyak saku fungsional, serta emblem skull yang memberi kesan rebel & street style. Cocok untuk riding dan aktivitas outdoor.",
     "category": "Fashion Pria / Outerwear / Jaket Hoodie",
     "image": "/foto/8.jpeg"
@@ -67,7 +67,7 @@
   {
     "id": 9,
     "title": "Sweatshirt Navigator Striped Maroon Navy",
-    "price":  229000,
+    "price":  230000,
     "description": "Sweatshirt lengan panjang dengan motif garis horizontal warna maroon dan navy. Desain klasik dengan logo “N” di tengah membuat tampilan santai tapi tetap berkelas. Bahan lembut dan hangat",
     "category": "Fashion Pria / Atasan / Sweatshirt",
     "image": "/foto/9.jpeg"
@@ -75,14 +75,14 @@
   {
     "id": 10,
     "title": "Jaket Bomber House of Smith Rebels & Outlaws",
-    "price": 389000,
+    "price": 390000,
     "description": "Jaket bomber premium dengan nuansa hitam klasik dan kerah coklat. Dihiasi bordir eksklusif “House of Smith – Rebels & Outlaws” yang kuat dan berkarakter. Cocok untuk gaya biker dan streetwear",    "category": "Fashion Pria / Outerwear / Jaket Bomber",
     "image": "/foto/10.jpeg"
   },
   {
     "id": 11,
     "title": "Polo Shirt Navigator Club Brown Edition",
-    "price":  149000,
+    "price":  150000,
     "description": "Polo shirt warna coklat elegan dengan logo Navigator Club di dada. Desain simpel namun berkelas, cocok untuk tampilan santai, kerja kasual, atau acara komunitas. Nyaman dipakai seharian.",
     "category": "Fashion Pria / Atasan / Polo Shirt",
     "image": "/foto/11.jpeg"
