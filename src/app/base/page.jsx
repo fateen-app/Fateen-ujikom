@@ -13,7 +13,7 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
         <div className=''>
             <Header to="/" cta="Toko saya"/>
 
-            <Card className="max-w-80 mx-auto mt-20">
+            <Card className="max-w-80 mx-auto mt-20 min-h-1">
                 <CardHeader>
                 <h1 className='text-2xl font-bold text-center'>
                     Program Hitung Diskon
@@ -25,7 +25,7 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
                  </div> 
 
                  <div>
-                <Input placeholder={"Diskon Barang"} onChange ={(e)=>setDiskon (e.target.value)} />
+                <Input placeholder={"Diskon Barang (%)"} onChange ={(e)=>setDiskon (e.target.value)} />
                 </div>
                 </CardContent>
                 <CardFooter>

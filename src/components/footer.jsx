@@ -1,7 +1,7 @@
 const  Footer = (props) => {      
     
     return (
-        <footer className="w-full bg-primary text-primary-foreground mt-20">
+        <footer className="w-full bg-primary text-primary-foreground mt-60">
             <div className="mx-auto max-w-7x1 px-4 py-5 flex flex-col gap-3 sm:flex-row
         sm:items-center sm:justify-between">
 

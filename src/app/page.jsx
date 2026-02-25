@@ -14,7 +14,7 @@ import { numberToIDR } from "@/hook/numberToIDR"
 import { Input } from "@/components/ui/input"
 
 const PageHome =()=>{    
-    //const [data,setData] = React.useState([])
+    
 const daftarHero =['/banner/1.jpeg']
    const data = daftarbarang
    
@@ -22,23 +22,12 @@ const daftarHero =['/banner/1.jpeg']
     const [Keranjang,setKeranjang] = React.useState([])
     const [diskon,setDiskon] =React.useState(20)
 
-    // state program diskon
-    //     React.useEffect(()=>{
-    //         setTotalHarga(Keranjang.reduce((acc,data)=>(acc+=data.price),0))
-    //         setPotonganHarga(totalHarga*diskon/100)
-    //         setCekoutPrice(totalHarga-potonganHarga)
-    //     },
-    // [diskon,potonganHarga,totalHarga,Keranjang])
-
     const [program,setProgram] = React.useState({
         'diskon' : diskon,
         'potongHarga' :0,
         'totalHarga':0,
         'cekoutPrice':0
     })
-    // efek yang akan terjadi jika keranjang berubah
-    // use effect untuk program
- 
    
 
    const handleKeranjang =(item)=>{
@@ -48,14 +37,15 @@ const daftarHero =['/banner/1.jpeg']
   return(
         <div>
 <section className="fixed bottom-10 right-10">
-    <Drawer>
+    <Drawer >
             <DrawerTrigger>
                 <Button>
                     <ShoppingBag/>
                     {Keranjang?.length}
                 </Button>
+            </DrawerTrigger>
                 <DrawerContent>
-                    <DrawerHeader >
+                     <DrawerHeader >
                         <DrawerTitle>
                             KERANJANG
                         </DrawerTitle>
@@ -70,21 +60,21 @@ const daftarHero =['/banner/1.jpeg']
                                         </span>
                                         <span>
                                             {numberToIDR(item.price)}
-                                        </span>
+                                            </span>
                                     </div>
                                 )
                             })
                           }  
+                          <Input placeHolder="Masukan Diskon (%)" onChange = {(event)=> setDiskon(event.target.value)} >
+                        </Input>
+                        <div className="w-full px-8 mt-4"> 
+                                <Diskon diskon={diskon} harga={Keranjang.reduce((acc, data) => (acc + data.price), 0)} />
+                        </div>
                     </ScrollArea>
                     <DrawerFooter>
-                      <Input   placeHolder ="masukan diskon" onChange = {(e)=>setDiskon(e.target.value)}/>
-                      
-                        <Diskon diskon ={diskon} harga ={Keranjang.reduce((acc,data)=>(acc+=data.price),0)}>
 
-                        </Diskon>
                     </DrawerFooter>
                </DrawerContent>
-            </DrawerTrigger>
          </Drawer>
 </section>
          

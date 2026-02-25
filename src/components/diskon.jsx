@@ -8,7 +8,7 @@ const Diskon = (props)=> {
     return (
         <div className="w-full">
             {
-                props.diskon >= 100 ? (
+                props.diskon >= 101 ? (
                     <p className="text-center oklch(0.6180 0.1171 60.3991) text-2xl">
                         diskon tidak valid
                     </p>
@@ -27,7 +27,7 @@ const Diskon = (props)=> {
                                 potongan harga :
                             </span>
                             <span>
-                                - {numberToIDR(totalDiskon)}
+                                 {numberToIDR(totalDiskon)}
                             </span>
 
                         </span>
